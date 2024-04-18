@@ -1,12 +1,12 @@
-def generate_expression(result: list, total: int, current_num: int = 9, current_expression: str = '0'):
-    if current_num == 0:
+def generate_expression(result: list, total: int, current_num: int = 1, current_expression: str = '0'):
+    if current_num == 10:
         if eval(current_expression) == total:
             result.append(current_expression)
         return
 
-    generate_expression(result, total, current_num - 1, str(current_num) + '+' + current_expression)
-    generate_expression(result, total, current_num - 1, str(current_num) + '-' + current_expression)
-    generate_expression(result, total, current_num - 1, str(current_num) + current_expression)
+    generate_expression(result, total, current_num + 1, str(current_num) + '+' + current_expression)
+    generate_expression(result, total, current_num + 1, str(current_num) + '-' + current_expression)
+    generate_expression(result, total, current_num + 1, str(current_num) + current_expression)
 
 
 # число которое необходимо получить
